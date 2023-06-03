@@ -27,6 +27,11 @@ width: 38px;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
+    cursor: pointer;
+}
+
+.header__button:hover{
+    opacity: 0.5;
 }
 
 .header__link{
@@ -36,4 +41,9 @@ width: 38px;
     line-height: 16px;
     color: #FFFFFF;
     padding-right: 30px;
+    cursor: pointer;
+}
+
+.header__link:hover{
+    opacity: 0.5;
 }
