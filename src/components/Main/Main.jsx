@@ -1,18 +1,19 @@
 import React from 'react';
 
-import AboutProject from '../AboutProject/AboutProject';
-import AboutMe from '../AboutMe/AboutMe';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Promo from '../Promo/Promo';
-import Techs from '../Techs/Techs';
-import Portfolio from '../Portfolio/Portfolio';
+import MoviesCard from '../MoviesCard/MoviesCard';
+// import AboutProject from '../AboutProject/AboutProject';
+// import AboutMe from '../AboutMe/AboutMe';
+// import Footer from '../Footer/Footer';
+// import Header from '../Header/Header';
+// import Promo from '../Promo/Promo';
+// import Techs from '../Techs/Techs';
+// import Portfolio from '../Portfolio/Portfolio';
 import './Main.css';
 
 const Main = () => {
   return (
     <>
-      <Header />
+      {/* <Header />
       <main className="main">
         <Promo />
         <AboutProject />
@@ -20,7 +21,8 @@ const Main = () => {
         <AboutMe />
         <Portfolio />
       </main>
-      <Footer />
+      <Footer /> */}
+      <MoviesCard/>
     </>
   );
 };
