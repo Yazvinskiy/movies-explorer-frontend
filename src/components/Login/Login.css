@@ -74,6 +74,7 @@
     background-color: #FF6838;
     border: none;
     margin-top: 69px;
+    border-radius: 3px;
 }
 
 .wrapper__input {

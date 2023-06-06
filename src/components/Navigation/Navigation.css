@@ -1,0 +1,24 @@
+.navigation__link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.navigation__link:first-of-type {
+    margin-right: 20px;
+}
+
+.active {
+    font-weight: 500;
+}
+
+.navigation__btn{
+    width: 100px;
+    height: 32px;
+    background-color: F9F9F9;
+    border-radius: 20px;
+    border: none;
+    margin-left: 70px;
+}

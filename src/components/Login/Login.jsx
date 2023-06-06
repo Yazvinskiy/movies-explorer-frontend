@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom';
 
 import './Login.css';
 import logo from '../../images/header-logo.svg';
@@ -8,7 +9,7 @@ const Login = () => {
     <section className='login'>
       <div className="auth__container">
         <div className='auth__header'>
-        <a href='/'><img className="auth__image" src={logo} alt="Логотип" /></a>
+        <Link to={'/'}><img className="auth__image" src={logo} alt="Логотип" /></Link>
           <h2 className="auth__title">Рады видеть!</h2>
         </div>
         <form>
@@ -32,9 +33,9 @@ const Login = () => {
         </form>
         <p className="auth__caption">
         Ещё не зарегистрированы?
-          <a href="/" className="auth__link">
+          <Link to={"/signup"} className="auth__link">
           Регистрация
-          </a>
+          </Link>
         </p>
       </div>
 

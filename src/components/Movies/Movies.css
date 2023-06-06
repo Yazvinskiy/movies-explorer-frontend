@@ -1,0 +1,18 @@
+.movies {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.movies__btn {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.52px;
+    background-color: #F9F9F9;
+    padding: 11px 0 9px 0;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 80px;
+    cursor: pointer;
+}
+

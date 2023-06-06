@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom';
 
 import './NotFound.css'
 
@@ -7,7 +8,7 @@ const NotFound = () => {
     <div className='not-found-page__container'>
     <h2 className='not-found-page__title'>404</h2>
     <h4 className='not-found-page__subtitle'>Страница не найдена</h4>
-    <a href='/' className='not-found-page__link'>Назад</a>
+    <Link to={'/'} className='not-found-page__link'>Назад</Link>
     </div>
   )
 }
