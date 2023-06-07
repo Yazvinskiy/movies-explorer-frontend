@@ -1,0 +1,16 @@
+.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox__text {
+    padding-left: 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0 ;
+}
+
+.checkbox__image{
+cursor: pointer;
+}

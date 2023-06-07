@@ -5,8 +5,8 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
-    <nav>
-      <div>
+    <nav className='navigation'>
+      <div className='navigation__container'>
         <NavLink to={'/movies'} className="navigation__link">
           Фильмы
         </NavLink>
@@ -17,6 +17,7 @@ const Navigation = () => {
         <button className='navigation__btn'>Аккаунт</button>
         </NavLink>
       </div>
+      <button className='navigation__burger'></button>
     </nav>
   );
 };

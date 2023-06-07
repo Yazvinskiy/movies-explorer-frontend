@@ -8,21 +8,21 @@ import Promo from '../Promo/Promo';
 import Techs from '../Techs/Techs';
 import Portfolio from '../Portfolio/Portfolio';
 import './Main.css';
-import Navigation from '../Navigation/Navigation';
+import PopupMenu from '../PopupMenu/PopupMenu';
 
 const Main = () => {
   return (
     <>
-      <Header />
-      <main className="main">
+      {/* <Header />
+       <main className="main">
         <Promo />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
       </main>
-      <Footer />
-      <Navigation/>
+      <Footer /> */}
+      <PopupMenu/>
     </>
   );
 };

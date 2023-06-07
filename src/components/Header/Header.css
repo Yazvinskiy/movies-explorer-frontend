@@ -2,6 +2,10 @@
    background: #465DFF; 
 }
 
+.header-auth{
+    background: white; 
+ }
+
 .header__container{
     max-width: 1140px;
     min-height: 74px;

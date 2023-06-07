@@ -14,19 +14,19 @@ const Register = () => {
         </div>
         <form>
           <div className="wrapper__input">
-            <label className="auth__label" for="name">
+            <label className="auth__label" htmlFor="name">
               Имя
             </label>
             <input className="auth__input" type="text" name="name"></input>
           </div>
           <div className="wrapper__input">
-            <label className="auth__label" for="email">
+            <label className="auth__label" htmlFor="email">
               E-mail
             </label>
             <input className="auth__input" type="email" name="email"></input>
           </div>
           <div className="wrapper__input">
-            <label className="auth__label" for="bread">
+            <label className="auth__label" htmlFor="password">
               Пароль
             </label>
             <input

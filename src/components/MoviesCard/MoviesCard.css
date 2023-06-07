@@ -1,5 +1,4 @@
 .cards-movies__item {
-    max-height: 232px;
     text-align: start;
 }
 
@@ -16,17 +15,47 @@
     margin: 0;
 }
 
-.cards-movies__content{
+.cards-movies__content {
     display: flex;
     justify-content: space-between;
-     padding: 14px 0 29px 0;
+    align-items: center;
+    padding: 14px 0 29px 0;
     border-bottom: 1px solid #E8E8E8;
 }
 
-.cards-movies__image{
+.cards-movies__image {
+    cursor: pointer;
+    width: 270px;
+}
+
+.cards-movies__like {
     cursor: pointer;
 }
 
-.cards-movies__like{
-    cursor: pointer;
+@media screen and (max-width: 1279px) {
+    .cards-movies__image {
+        width: 339px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cards-movies__image {
+        width: 300px;
+    }
+
+    .cards-movies__content {
+        padding: 15px 0 29px 0;
+    }
+
+    .cards-movies__title {
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+
+    .cards-movies__duration {
+        font-size: 10px;
+        line-height: 12.1px;
+    }
+
+    
 }

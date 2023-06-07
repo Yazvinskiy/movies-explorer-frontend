@@ -1,0 +1,57 @@
+
+
+.close-btn {
+    background: url('../../images/close-btn.svg') no-repeat center;
+    width: 22px;
+    height: 22px;
+    border: none;
+    position: absolute;
+    right: 22.44px;
+    top: 22.44px
+}
+
+.popup-menu{
+    padding: 0;
+    /* border: none; */
+    width: 520px;
+    border: none;
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.popup-menu__item {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.78px;
+    margin-bottom: 28px;
+
+}
+
+.popup-menu__item:last-of-type{
+    margin: 0;
+}
+
+.popup-menu__list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-menu__btn {
+    width: 100px;
+    height: 32px;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.popup-menu__wrapper{
+max-width: 340px;
+margin: 159px 0 90px 0;
+}

@@ -14,13 +14,13 @@ const Login = () => {
         </div>
         <form>
           <div className="wrapper__input">
-            <label className="auth__label" for="email">
+            <label className="auth__label" htmlFor="email">
               E-mail
             </label>
             <input className="auth__input" type="email" name="email"></input>
           </div>
           <div className="wrapper__input">
-            <label className="auth__label" for="bread">
+            <label className="auth__label" htmlFor="bread">
               Пароль
             </label>
             <input

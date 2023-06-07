@@ -20,6 +20,13 @@
     width: 1060px;
 }
 
+.search-film__input::placeholder  {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #A0A0A0;
+}
+
 .search-film__input:focus {
     outline: none;
 }
@@ -36,17 +43,25 @@
     box-sizing: border-box;
     border: none;
     align-self: center;
+    cursor: pointer;
 }
 
-.search-film__wrapper {
-    display: flex;
-    justify-content: center;
+
+
+@media screen and (max-width: 1279px) {
+    .search-film {
+        max-width: 708px;
+    }
+    .search-film__input {
+        width: 628px;
+    }
 }
 
-.search-film__text {
-    padding-left: 12px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    margin: 0 ;
-}
+@media screen and (max-width: 767px) {
+    .search-film {
+        max-width: 300px;
+    }
+    .search-film__input {
+        width: 212px;
+    }
+    }

@@ -14,11 +14,36 @@
     font-weight: 500;
 }
 
-.navigation__btn{
+.navigation__burger {
+    display: none;
+    background-image: url('../../images/burger-menu.svg');
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.navigation__btn {
     width: 100px;
     height: 32px;
-    background-color: F9F9F9;
+    background-color: #F9F9F9;
     border-radius: 20px;
     border: none;
     margin-left: 70px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+@media screen and (max-width: 1279px) {
+    .navigation__container {
+        display: none;
+    }
+
+    .navigation__burger {
+        display: block;
+    }
 }

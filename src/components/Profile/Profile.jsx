@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import './Profile.css';
@@ -11,20 +12,26 @@ const Profile = () => {
         <h2 className="profile__title">Привет, Владимир!</h2>
         <form className="profile__form">
           <div className="profile__wrapper-input">
-            <label className="profile__label">Имя</label>
-            <input className="profile__input"></input>
+            <label className="profile__label" htmlFor="name">
+              Имя
+            </label>
+            <input className="profile__input" name="name"></input>
           </div>
           <div className="profile__wrapper-input">
-          <label className="profile__label">E-mail</label>
-            <input className="profile__input"></input>
+            <label className="profile__label" htmlFor="email">
+              E-mail
+            </label>
+            <input className="profile__input" name="name"></input>
           </div>
         </form>
         <button className="profile__btn profile__btn-edit" type="submit">
           Редактировать
         </button>
-        <button className="profile__btn profile__btn-exit" type="button">
-          Выйти из аккаунта
-        </button>
+        <Link to={"/"}>
+          <button className="profile__btn profile__btn-exit" type="button">
+            Выйти из аккаунта
+          </button>
+        </Link>
       </div>
     </div>
   );
