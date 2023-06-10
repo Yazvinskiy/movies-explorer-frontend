@@ -15,3 +15,16 @@
     margin-bottom: 80px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1279px) {
+    .movies {
+        max-width: 708px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .movies {
+        max-width: 320px;
+    }
+}
+    

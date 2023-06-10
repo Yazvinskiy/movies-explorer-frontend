@@ -8,7 +8,7 @@ import logo from '../../images/header-logo.svg';
 
 const Header = () => {
   const mainPage = useMatch('/');
-
+ 
   return mainPage ? (
     <header className="header">
       <div className="header__container">

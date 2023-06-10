@@ -8,14 +8,17 @@ import './Movies.css';
 
 const Movies = () => {
   return (
-    <div className='movies'>
-        <Header/>
-      <SearchForm/>
-      <MoviesCardList/>
-      <button className='movies__btn'>Ещё</button>
-      <Footer/>
+    <>
+      {' '}
+      <div className="movies">
+        <Header />
+        <SearchForm />
+        <MoviesCardList />
+        <button className="movies__btn">Ещё</button>
       </div>
-  )
-}
+      <Footer />
+    </>
+  );
+};
 
-export default Movies
+export default Movies;
