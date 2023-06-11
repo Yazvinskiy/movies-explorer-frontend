@@ -15,13 +15,13 @@ const Profile = () => {
             <label className="profile__label" htmlFor="name">
               Имя
             </label>
-            <input className="profile__input" name="name"></input>
+            <input className="profile__input" name="name"  required></input>
           </div>
           <div className="profile__wrapper-input">
             <label className="profile__label" htmlFor="email">
               E-mail
             </label>
-            <input className="profile__input" name="name"></input>
+            <input className="profile__input" name="name"  required></input>
           </div>
         </form>
         <button className="profile__btn profile__btn-edit" type="submit">

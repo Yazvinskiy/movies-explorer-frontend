@@ -1,5 +1,6 @@
 .movies {
-    max-width: 1140px;
+    max-width: 1160px;
+    
     margin: 0 auto;
 }
 
@@ -25,6 +26,11 @@
 @media screen and (max-width: 767px) {
     .movies {
         max-width: 320px;
+    }
+
+    .movies__btn {
+        padding: 0 10px;
+       
     }
 }
     

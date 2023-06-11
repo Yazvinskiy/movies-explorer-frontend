@@ -32,6 +32,7 @@ const Login = () => {
               E-mail
             </label>
             <input
+             required
               className="auth__input"
               type="email"          
               {...register('email', {
@@ -56,6 +57,7 @@ const Login = () => {
               Пароль
             </label>
             <input
+             required
               className="auth__input"
               type="password"
               {...register('password', {

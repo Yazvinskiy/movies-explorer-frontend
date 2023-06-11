@@ -3,9 +3,10 @@
 }
 
 .portfolio__container {
-    max-width: 1140px;
+    max-width: 1160px;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 100px 0 125px 0;
+    padding: 100px 10px 125px 10px;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -29,8 +30,6 @@
     list-style-type: none;
     border-bottom: 1px solid #E8E8E8;
     padding: 20px 0 19px 0; 
-    background: url('../../images/arrow.svg') no-repeat;
-    background-position: center right;
     cursor: pointer;
 }
 
@@ -44,11 +43,14 @@
 
 
 .portfolio__link {
+    display: block;
     text-decoration: none;
     color: black;
     font-size: 30px;
     line-height: 50px;
     font-weight: 400;
+    background: url('../../images/arrow.svg') no-repeat;
+    background-position: center right;
 }
 
 @media screen and (max-width: 1023px) {
@@ -58,14 +60,14 @@
 
     .portfolio__container {   
         max-width: 668px;
-        padding: 91px 0 90px 0; 
+        padding: 91px 10px 90px 10px; 
     }
 }
 
 @media screen and (max-width: 767px) {
     .portfolio__container {   
         max-width: 320px;
-        padding: 70px 0; 
+        padding: 70px 10px; 
     }
 
     .portfolio__title {

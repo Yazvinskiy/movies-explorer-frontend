@@ -3,9 +3,10 @@
 }
 
 .project__container {
-    max-width: 1140px;
+    max-width: 1160px;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 110px 0;
+    padding: 110px 10px;
 }
 
 .project__info {
@@ -79,7 +80,7 @@
 
 @media screen and (max-width: 1023px) {
     .project__container {
-        padding: 90px 0;
+        padding: 90px 10px;
         max-width: 668px;
     }
 
@@ -101,7 +102,7 @@
 @media screen and (max-width: 767px) {
     .project__container {
         max-width: 320px;
-        padding: 70px 0;
+        padding: 70px 10px;
     }
 
     .project__subtitle {

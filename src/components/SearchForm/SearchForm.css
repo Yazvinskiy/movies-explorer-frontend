@@ -1,11 +1,11 @@
 .search-film {
     max-width: 1140px;
     margin: 0 auto;
-    padding:80px 0 40px 0;
+    padding:80px 10px 40px 10px;
     border-bottom: 1px solid #E8E8E8;
 }
 
-.search-film__container {
+.search-film__form {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -17,7 +17,7 @@
     border-radius: 4px;
     background-color: #F9F9F9;
     border: none;
-    width: 1060px;
+    width: 1040px;
 }
 
 .search-film__input::placeholder  {
@@ -28,7 +28,7 @@
 }
 
 .search-film__input:focus {
-    outline: none;
+    outline: 1px solid #2BE080;
 }
 
 .search-film__btn {
@@ -53,7 +53,7 @@
         max-width: 708px;
     }
     .search-film__input {
-        width: 628px;
+        width: 608px;
     }
 }
 
@@ -62,6 +62,6 @@
         max-width: 300px;
     }
     .search-film__input {
-        width: 212px;
+        width: 218px;
     }
     }

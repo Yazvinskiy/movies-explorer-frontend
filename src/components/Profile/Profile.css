@@ -5,7 +5,8 @@
     flex-direction: column;
     max-width: 410px;
     margin: 0 auto;
-    padding: 74px 0 70px 0;
+    padding: 74px 10px 70px 10px;
+    box-sizing: border-box;
 }
 
 .profile__title {
@@ -66,27 +67,22 @@
     font-weight: 400;
     line-height: 13.31px;
     border: none;
+    border-radius: 4px;
 }
 
 .profile__input:focus {
-    outline: none;
+    outline: 1px solid #E8E8E8;
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__container {
-        padding: 236px 0 269px 0;
-    }
-
     .profile__form {
         margin: 96px 0 210px 0;
-    }
-    
+    } 
 }
 
 @media screen and (max-width: 767px) {
-    .profile__container {
-        
-        padding: 70px 0 40px 0;
+    .profile__container {     
+        padding: 70px 10px 40px 10px;
     }
     .profile__form {
         margin: 80px 0 379px 0;

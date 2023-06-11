@@ -9,9 +9,9 @@ import './Movies.css';
 const Movies = () => {
   return (
     <>
-      {' '}
+    
       <div className="movies">
-        <Header />
+      <Header />
         <SearchForm />
         <MoviesCardList />
         <button className="movies__btn">Ещё</button>

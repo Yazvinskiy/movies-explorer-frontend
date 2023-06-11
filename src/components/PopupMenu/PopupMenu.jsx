@@ -31,7 +31,6 @@ const PopupMenu = ({ onClose, isOpen }) => {
       <div className="popup" onClick={handleOverlay}></div>
       <div className="popup-menu">
         <button className="close-btn" type="button" onClick={onClose}></button>
-        <div className="popup-menu__wrapper">
           <nav>
             <ul className="popup-menu__list">
               <NavLink to={'/'} className="popup-menu__item">Главная</NavLink>
@@ -41,8 +40,7 @@ const PopupMenu = ({ onClose, isOpen }) => {
           </nav>
           <Link to={'/profile'}>
             <button className="popup-menu__btn">Аккаунт</button>
-          </Link>
-        </div>
+          </Link>  
       </div>
     </>
   ) : (

@@ -3,7 +3,9 @@
 }
 
 .footer__container {
-    max-width: 1140px;
+    max-width: 1160px;
+    padding: 0 10px;
+    box-sizing: border-box;
     min-height: 172px;
     margin: 0 auto;
 }

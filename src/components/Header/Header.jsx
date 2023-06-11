@@ -19,8 +19,8 @@ const Header = () => {
           <Link to={'/signup'} className="header__link">
             Регистрация
           </Link>
-          <Link to={'/signin'}>
-            <button className="header__button">Войти</button>
+          <Link to={'/signin'} className="header__button">
+            Войти
           </Link>
         </nav>
       </div>

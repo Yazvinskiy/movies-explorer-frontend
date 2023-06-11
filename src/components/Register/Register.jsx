@@ -29,6 +29,7 @@ const Register = () => {
               Имя
             </label>
             <input
+             required
               className="auth__input"
               type="text"
               name="name"
@@ -56,6 +57,7 @@ const Register = () => {
               E-mail
             </label>
             <input
+             required
               className="auth__input"
               type="email"
               {...register('email', {
@@ -82,6 +84,7 @@ const Register = () => {
               Пароль
             </label>
             <input
+             required
               className="auth__input"
               type="password"
               {...register('password', {
@@ -99,7 +102,7 @@ const Register = () => {
               {errors?.password && errors.password.message}{' '}
             </p>
           </div>
-          <button className="auth__button">Зарегистрироваться</button>
+          <button className="auth__btn">Зарегистрироваться</button>
         </form>
         <p className="auth__caption">
           Уже зарегистрированы?
