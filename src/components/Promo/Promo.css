@@ -1,0 +1,138 @@
+.promo {
+    background: #465DFF;
+}
+
+.promo__image {
+    background: #465DFF;
+    width: 310px;
+    height: 304px;
+}
+
+.promo__title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    color: #FFFFFF;
+    margin: 0;
+    min-height: 174px;
+    text-align: start;
+}
+
+.promo__subtitle {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15.73px;
+    color: #FFFFFF;
+    margin: 36px 0 0 0;
+    max-width: 310px;
+    opacity: 0.5;
+    text-align: start;
+}
+
+.promo__link {
+    color: #FFFFFF;
+    width: 129px;
+    height: 36px;
+    border-radius: 3px;
+    border: 1px solid #FFFFFF;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    opacity: 0.7;
+    margin: 146px 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promo__link:hover {
+    opacity: 0.5;
+}
+
+.promo__info {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+}
+
+.promo__container {
+    max-width: 1160px;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 75px 10px;
+    flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1023px) {
+    .promo__container {
+        max-width: 668px;
+        flex-direction: column;
+        padding: 140px 0 76px 0;
+    }
+
+    .promo__title {
+        font-size: 40px;
+        line-height: 50px;
+        padding-top: 48px;
+        text-align: center;
+    }
+
+    .promo__subtitle {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15.73px;
+        color: #FFFFFF;
+        margin: 22px 0 0 0;
+        max-width: 260px;
+        text-align: center;
+    }
+
+    .promo__link {
+        margin: 92px 0 0 0;  
+    }
+    
+    .promo__info {
+        max-width: 680px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .promo__image {
+        align-self: center;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .promo__container {
+        max-width: 320px;
+        padding: 70px 10px 30px 10px;
+        box-sizing: border-box;
+    }
+    
+    .promo__title {
+        font-size: 30px;
+        line-height: 50px;
+        padding-top: 44px;
+    }
+
+    .promo__image {
+        width: 210px;
+        height: 206px;
+    }
+
+    .promo__subtitle {
+        margin: 24px 0 0 0;
+    }
+
+    .promo__link {
+        margin: 80px 0 0 0;  
+    }
+
+}
+

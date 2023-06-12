@@ -1,0 +1,146 @@
+.project {
+    color: #FFFFFF;
+}
+
+.project__container {
+    max-width: 1160px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 110px 10px;
+}
+
+.project__info {
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 26px 0px;
+    text-align: start;
+    padding: 70px 0  110px;
+}
+
+.project__title {
+    color: black;
+    font-size: 22px;
+    line-height: 26.63px;
+    font-weight: 400;
+    text-align: start;
+    border-bottom: 1px solid #000000;
+    margin: 0;
+    padding-bottom: 23px;
+}
+
+
+.project__subtitle {
+    font-size: 20px;
+    line-height: 24.2px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 26px;
+}
+
+.project__text {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.project__plan {
+    display: grid;
+    grid-template-columns: 228px 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px 0px;
+}
+
+.project__technology {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+.project__timing {
+    font-size: 14px;
+    line-height: 16.94px;
+    font-weight: 400;
+    color: #000000;
+    padding: 9px 0;
+    margin: 0;
+}
+
+.project__timing:nth-of-type(1) {
+    background: #2BE080;
+}
+
+.project__timing:nth-of-type(2) {
+    background: #F2F2F2;
+}
+
+@media screen and (max-width: 1023px) {
+    .project__container {
+        padding: 90px 10px;
+        max-width: 668px;
+    }
+
+    .project__info {
+        padding: 70px 0  93px;
+    }
+
+    .project__text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .project__subtitle {
+        padding-bottom: 22px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .project__container {
+        max-width: 320px;
+        padding: 70px 10px;
+    }
+
+    .project__subtitle {
+        padding-bottom: 16px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .project__title {
+        padding-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .project__info {
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .project__timing {
+        font-size: 11px;
+        line-height: 13.34px; 
+    }
+
+    .project__technology {
+        font-size: 11px;
+        line-height: 12.7px;
+    }
+
+    .project__plan {
+        grid-template-columns: 100px 1fr;
+        gap: 10px 0px;
+    }
+    
+}

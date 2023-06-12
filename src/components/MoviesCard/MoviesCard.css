@@ -1,0 +1,74 @@
+.cards-movies__item {
+    text-align: start;
+}
+
+.cards-movies__duration {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13.3px;
+}
+
+.cards-movies__title {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15.73px;
+    margin: 0;
+}
+
+.cards-movies__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0 29px 0;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.cards-movies__image {
+    cursor: pointer;
+    width: 270px;
+}
+
+.cards-movies__like {
+    background-image: url('../../images/like-inactive.svg');
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.cards-movies__like_active {
+    background-image: url('../../images/like-active.svg');
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+}
+
+@media screen and (max-width: 1279px) {
+    .cards-movies__image {
+        width: 339px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cards-movies__image {
+        width: 300px;
+    }
+
+    .cards-movies__content {
+        padding: 15px 0 29px 0;
+    }
+
+    .cards-movies__title {
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+
+    .cards-movies__duration {
+        font-size: 10px;
+        line-height: 12.1px;
+    }
+
+    
+}
