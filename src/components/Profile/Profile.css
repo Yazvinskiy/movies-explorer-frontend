@@ -1,6 +1,4 @@
- 
-
-.profile__container {
+ .profile__container {
     display: flex;
     flex-direction: column;
     max-width: 410px;
@@ -19,37 +17,51 @@
 .profile__form {
     display: flex;
     flex-direction: column;
-    margin: 123px 0 220px 0;
+    margin-top: 123px;
 }
 
 .profile__btn {
     border: none;
     background: none;
     cursor: pointer;
+    
 }
 
 .profile__btn-edit {
     font-size: 13px;
     font-weight: 400;
     line-height: 15.73px;
+    margin-top: 220px;
 }
 
+.profile__btn-edit:disabled{
+    opacity: 0.9;
+}
+
+
+.profile__exit{
+    color: #EE3465;
+}
 .profile__btn-exit {
     font-size: 13px;
     font-weight: 500;
     line-height: 15.73px;
-    color: #EE3465;
     margin-top: 16px;
+    text-decoration: none;
+    align-self: center;
+    
 }
 
 .profile__wrapper-input {
     display: flex;
     justify-content: space-between;
+    min-width: 260px;
 }
 
 .profile__wrapper-input:first-of-type {
     padding-bottom: 16px;
     border-bottom: 1px solid #E8E8E8;
+    
 }
 
 .profile__wrapper-input:last-of-type {
@@ -68,6 +80,7 @@
     line-height: 13.31px;
     border: none;
     border-radius: 4px;
+    text-align: end;
 }
 
 .profile__input:focus {
@@ -76,8 +89,12 @@
 
 @media screen and (max-width: 1023px) {
     .profile__form {
-        margin: 96px 0 210px 0;
+        margin-top: 96px;
     } 
+
+    .profile__btn-edit { 
+        margin-top: 210px;
+    }
 }
 
 @media screen and (max-width: 767px) {

@@ -73,6 +73,11 @@
     background-color: #FF6838;
     border: none;
     margin-top: 69px;
+    cursor: pointer;
+}
+
+.auth__btn:disabled{
+    opacity: 0.5;
 }
 
 .auth__image {

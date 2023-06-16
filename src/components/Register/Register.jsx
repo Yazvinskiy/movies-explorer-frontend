@@ -5,14 +5,23 @@ import { useForm } from 'react-hook-form';
 import logo from '../../images/header-logo.svg';
 import './Register.css';
 
-const Register = () => {
+const Register = ({onSubmit, onLoading}) => {
+ 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid },
   } = useForm({
     mode: 'all',
   });
+
+
+  const handleValueSubmit = (data) => {
+    onLoading()
+    onSubmit(data);
+    reset()
+  };
 
   return (
     <section className="registration">
@@ -23,7 +32,7 @@ const Register = () => {
           </Link>
           <h2 className="auth__title">Добро пожаловать!</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit(handleValueSubmit)}>
           <div className="wrapper__input">
             <label className="auth__label" htmlFor="name">
               Имя
@@ -45,6 +54,10 @@ const Register = () => {
                 maxLength: {
                   value: 20,
                   message: 'максимальное количество символов 20',
+                },
+                pattern: {
+                  value: /^[А-ЯA-Z- -]+$/umi,
+                  message: 'Поле name должно содержить только латиницу, кириллицу, пробел или дефис ',
                 },
               })}
             ></input>
@@ -94,7 +107,7 @@ const Register = () => {
                 },
                 minLength: {
                   value: 8,
-                  message: 'минимальное количество символов 8',
+                  message: 'Минимальное количество символов 8',
                 },
               })}
             ></input>
@@ -102,7 +115,7 @@ const Register = () => {
               {errors?.password && errors.password.message}{' '}
             </p>
           </div>
-          <button className="auth__btn">Зарегистрироваться</button>
+          <button className="auth__btn" type="submit" disabled={!isValid}>Зарегистрироваться</button>
         </form>
         <p className="auth__caption">
           Уже зарегистрированы?
