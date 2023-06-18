@@ -3,7 +3,7 @@ import React from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 
-const SearchForm = () => {
+const SearchForm = ({shortsFilms}) => {
 
   return (
     <div className='search-film'> 
@@ -11,7 +11,7 @@ const SearchForm = () => {
         <input className='search-film__input' placeholder="Фильм" required></input>
      <button className='search-film__btn' type="submit">Найти </button>
         </form>
-      <FilterCheckbox/>
+      <FilterCheckbox shortsFilms={shortsFilms}/>
     </div>
   )
 }

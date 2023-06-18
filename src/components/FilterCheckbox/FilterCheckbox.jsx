@@ -4,7 +4,8 @@ import tumb_off from '../../images/smalltumb-off.svg'
 import tumb_on from '../../images/smalltumb-on.svg'
 import './FilterCheckbox.css';
 
-const FilterCheckbox = () => {
+const FilterCheckbox = ({shortsFilms}) => {
+  // console.log(shortsFilms)
   const [isActive, setIsActive] = React.useState(false);
 
   const handleClick = () => {

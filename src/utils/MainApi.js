@@ -11,7 +11,36 @@ export default class MainApi {
         return res.json();
       }
 
-      ////
+      async saveMovie(data) {
+        const res = await fetch(`${this._baseUrl}/movies`, {
+          method: 'POST',
+          headers: this._headers,
+          body: JSON.stringify({
+            nameRU: data.nameRU || '',
+            nameEN: data.nameEN || '',
+            country: data.country || '',
+            director: data.director || '',
+            duration: data.duration || '',
+            year: data.year || '',
+            description: data.description || '',
+            image: `https://api.nomoreparties.co${data.image.url}` || '',
+            trailerLink: data.trailerLink || '',
+            thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}` || '',
+            movieId: data.id,
+          })
+      });
+        return this._getResponse(res);
+      }
+
+      async deleteMovie(id) {
+        const res = await fetch(`${this._baseUrl}/movies${id}`, {
+          method: 'DELETE',
+          headers: this._headers
+      });
+      return this._getResponse(res);
+      }
+
+      
       async getSavedMovies() {
         const res = await fetch(`${this._baseUrl}/movies`, {
             method: 'GET',
@@ -19,7 +48,7 @@ export default class MainApi {
         });
         return this._getResponse(res);
       }
-////user
+
       async getUserData() {
         const res = await fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',

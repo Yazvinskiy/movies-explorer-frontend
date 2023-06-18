@@ -22,9 +22,7 @@ function App() {
   const [isLoader, setIsLoader] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation()
-  // console.log(loggedIn)
-   
+  const location = useLocation();
 
   const handleSingUp = async (data) => {
     try {
@@ -87,12 +85,6 @@ function App() {
     }
   }, [loggedIn]);
 
-  // const getUserSavedMovies = () => {
-  //   try{
-  //     const userMovies = await api.getUserSavedMovies();
-  //     setCurrentUser
-  //   }
-  // }
 
   useEffect(() => {
     if (localStorage.getItem('jwt')) {
@@ -101,9 +93,7 @@ function App() {
         setCurrentUser(res);
         setLoggedIn(true);
         const loc = location.pathname
-        console.log(loc)
-         navigate(loc);
-          
+         navigate(loc);  
       })
       .catch((err) => console.log(err))
     }
