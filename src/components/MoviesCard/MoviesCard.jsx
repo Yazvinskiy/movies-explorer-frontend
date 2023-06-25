@@ -1,25 +1,24 @@
 import React from 'react';
+import { useMatch } from 'react-router-dom';
+
 
 import './MoviesCard.css';
-import { CurrentUserContext } from '../../context/CurrentUserContext';
 
-const MoviesCard = ({ movie, saveMovie, savedFilms, imageSavedMovie}) => {
-  
-  // function n(cardId){
-  //    const isLiked = savedFilms.some((i) => i.movieId === cardId);
-  //    return isLiked
-  // }
-  // console.log(isLiked)
+const MoviesCard = ({ movie, saveMovie, imageSavedMovie, deleteMovie }) => {
   const [isActive, setIsActive] = React.useState(false);
-
-  const movieImage =imageSavedMovie ?? `https://api.nomoreparties.co${movie.image.url}`;
+  const savedMoviesPage = useMatch('/saved-movies');
+  const movieImage = imageSavedMovie ?? `https://api.nomoreparties.co${movie.image.url}`;
   const durationMovie = (minutes) => {
     return `${Math.round(minutes / 60)}ч ${minutes % 60}мин`;
   };
+ 
+  const handleCardDelete = () => {
+    deleteMovie(movie)
+  }
 
-  const handleClick = (movie) => {
+  const handleLikeClick = (movie) => {
     setIsActive(!isActive);
-    saveMovie(movie)
+    saveMovie(movie)   
   };
 
   return (
@@ -27,13 +26,16 @@ const MoviesCard = ({ movie, saveMovie, savedFilms, imageSavedMovie}) => {
       <img className="cards-movies__image" src={ movieImage} alt="постер" />
       <div className="cards-movies__content">
         <h3 className="cards-movies__title">{movie.nameRU}</h3>
-        <button
-       
+        {savedMoviesPage ? (<button    
+          className="cards-movies__delete"
+          onClick={handleCardDelete}
+        ></button>) : ( <button    
           className={`cards-movies__like ${
-            isActive  ? 'cards-movies__like_active' : ''
+            movie.isLiked  ? 'cards-movies__like_active' : ''
           }`}
-          onClick={()=>handleClick(movie)}
-        ></button>
+          onClick={()=>handleLikeClick(movie)}
+        ></button>) }
+       
       </div>
       <span className="cards-movies__duration">
         {durationMovie(movie.duration)}

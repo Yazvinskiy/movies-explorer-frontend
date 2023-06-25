@@ -33,7 +33,7 @@ export default class MainApi {
       }
 
       async deleteMovie(id) {
-        const res = await fetch(`${this._baseUrl}/movies${id}`, {
+        const res = await fetch(`${this._baseUrl}/movies/${id}`, {
           method: 'DELETE',
           headers: this._headers
       });

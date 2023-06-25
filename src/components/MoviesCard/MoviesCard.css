@@ -38,6 +38,15 @@
     background-color: white;
 }
 
+.cards-movies__delete {
+    background-image: url('../../images/btnDelete.svg');
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
 .cards-movies__like_active {
     background-image: url('../../images/like-active.svg');
     width: 24px;
