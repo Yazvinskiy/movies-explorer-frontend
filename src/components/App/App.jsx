@@ -19,7 +19,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = useState(false);
   const [infoToolStatus, setInfoToolStatus] = useState(true);
-  const [isLoader, setIsLoader] = useState(true);
+  const [isUpdate, setIsUpdate] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -77,9 +77,10 @@ function App() {
     try {
       const userInfo = await mainApi.setUserData(data);
       setCurrentUser(userInfo);
+      setIsUpdate(true)
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 
   useEffect(() => {
@@ -110,9 +111,7 @@ function App() {
     setIsInfoTooltipPopupOpen(false);
   };
 
-  const handleLoading = () => {
-    setIsLoader(false);
-  };
+  
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -122,13 +121,13 @@ function App() {
           <Route
             path="/signin"
             element={
-              <Login onSubmit={handleSingIn} onLoading={handleLoading} />
+              <Login onSubmit={handleSingIn}  />
             }
           />
           <Route
             path="/signup"
             element={
-              <Register onSubmit={handleSingUp} onLoading={handleLoading} />
+              <Register onSubmit={handleSingUp}  />
             }
           />
           <Route
@@ -147,9 +146,10 @@ function App() {
               <ProtectedRoute
                 element={Profile}
                 loggedIn={loggedIn}
-                onLoading={handleLoading}
                 onSignOut={handleSignOut}
                 setUserData={setUserData}
+                isUpdate={isUpdate}
+                setIsUpdate={setIsUpdate}
               />
             }
           /> 

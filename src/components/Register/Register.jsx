@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import logo from '../../images/header-logo.svg';
 import './Register.css';
 
-const Register = ({onSubmit, onLoading}) => {
+const Register = ({onSubmit}) => {
  
   const {
     register,
@@ -18,7 +18,6 @@ const Register = ({onSubmit, onLoading}) => {
 
 
   const handleValueSubmit = (data) => {
-    onLoading()
     onSubmit(data);
     reset()
   };
@@ -48,12 +47,12 @@ const Register = ({onSubmit, onLoading}) => {
                   message: 'Введите имя',
                 },
                 minLength: {
-                  value: 4,
-                  message: 'минимальное количество символов 4',
+                  value: 2,
+                  message: 'минимальное количество символов 2',
                 },
                 maxLength: {
-                  value: 20,
-                  message: 'максимальное количество символов 20',
+                  value: 30,
+                  message: 'максимальное количество символов 30',
                 },
                 pattern: {
                   value: /^[А-ЯA-Z- -]+$/umi,
@@ -83,8 +82,8 @@ const Register = ({onSubmit, onLoading}) => {
                   message: 'Некорректный адрес электронной почты',
                 },
                 pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Адрес электронной почты должен содержать символ @',
+                  value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                  message: 'Адрес электронной почты невалидный',
                 },
               })}
             ></input>

@@ -34,6 +34,14 @@
     margin-top: 220px;
 }
 
+.profile__message{
+    color: #2BE080;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    margin:110px  0;
+}
+
 .profile__btn-edit:disabled{
     opacity: 0.9;
 }

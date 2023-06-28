@@ -6,28 +6,44 @@ import { CurrentUserContext } from '../../context/CurrentUserContext';
 import Header from '../Header/Header';
 import './Profile.css';
 
-const Profile = ({onSignOut, setUserData, onLoading}) => {
+const Profile = ({onSignOut, setUserData, isUpdate, setIsUpdate}) => {
   const currentUser = React.useContext(CurrentUserContext);
-
-  const {
+  const [showSuccessMessage, setShowSuccessMessage] = React.useState(false);
+   const {
     register,
     handleSubmit,
     setValue,
+    watch,
     formState: { isValid },
   } = useForm({
-    mode: 'onChange',
+    mode: 'all',
   });
+ 
+ const valueName = watch('name')
+ const valueEmail = watch('email')
   
   React.useEffect(() => {
-    setValue('name', currentUser.name ?? '');
+    if(currentUser) {
+      setValue('name', currentUser.name ?? '');
     setValue('email', currentUser.email ?? '');
+    }
   }, [currentUser, setValue]);
-
+ 
 
   const onSubmit = (data) => {
-    onLoading()
     setUserData(data);
   };
+  const handleShow = () => {
+    setShowSuccessMessage(true)
+    setTimeout(()=> setShowSuccessMessage(false), 2000)
+  }
+
+  React.useEffect(() => {
+    if(isUpdate ) {
+      handleShow()
+      setIsUpdate(false)
+    }
+  }, [isUpdate]);
 
   return (
 
@@ -44,7 +60,16 @@ const Profile = ({onSignOut, setUserData, onLoading}) => {
               {...register('name', {
                 required: {
                   value: true,
-                }
+                },
+                minLength: {
+                  value: 2,
+                },
+                maxLength: {
+                  value: 30,
+                },
+                pattern: {
+                  value: /^[А-ЯA-Z- -]+$/umi,
+                },
               })}></input>
           </div>
           <div className="profile__wrapper-input">
@@ -59,15 +84,16 @@ const Profile = ({onSignOut, setUserData, onLoading}) => {
                   value: 6, 
                 },
                 pattern: {
-                  value: /^\S+@\S+$/i,
+                  value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                 },
               })}></input>
           </div>
-          <button className="profile__btn profile__btn-edit" type="submit" disabled={!isValid} >
+          {showSuccessMessage ? <span className='profile__message'>Данные успешно обновлены!</span>
+         : <button className="profile__btn profile__btn-edit" type="submit" disabled={ (valueName === currentUser.name &&  valueEmail ===  currentUser.email)  || !isValid} >
           Редактировать
-        </button>
+        </button>}
         </form>
-       
+      
         <Link to={"/"} className='profile__btn-exit'>
           <button className="profile__btn profile__exit" type="button" onClick={onSignOut}>
             Выйти из аккаунта

@@ -20,6 +20,7 @@ const SavedMovies = ({loggedIn}) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [updateSavedFilms, setUpdateSavedFilms] = React.useState(null)
 
+
   const getSavedMovies = async () => {
     setIsLoading(true)
     try {
@@ -61,21 +62,20 @@ const SavedMovies = ({loggedIn}) => {
     } 
     else if(isShortFilms){
       const search = saveMovies.filter((movie) => {
-        return( movie.duration < 40 &&
-          movie.nameRU.toLowerCase()
-          .includes(inputValue )
-           )   
+        return (  movie.nameRU.toLowerCase()
+          .includes(inputValue)
+           )  
       });
       setSearchFilms(search);
     } else {
       const search = saveMovies.filter((movie) => {
-        return(  movie.nameRU.toLowerCase()
+        return ( movie.nameRU.toLowerCase()
           .includes(inputValue)
            )
       });
       setSearchFilms(search);
     }
-  }, [searchValue, saveMovies, isShortFilms])
+  }, [searchValue, saveMovies, isShortFilms, setSearchFilms])
   
   const handleClickBtnMore = () => {
     widthOfScreen < 1280 ? setCardsToLoad((p) => p + 2) : setCardsToLoad((p) => p + 4)
@@ -109,14 +109,14 @@ const SavedMovies = ({loggedIn}) => {
   };
 
   React.useEffect(() => {
-    // if(isShortFilms){
-    //   const search = saveMovies.filter((movie) => {
-    //     return movie.duration < 40     
-    //   });
-    //   setSearchFilms(search); 
-    // } else{
-    //   setSearchFilms(saveMovies)
-    // }
+    if(isShortFilms){
+      const search = saveMovies.filter((movie) => {
+        return movie.duration < 40     
+      });
+      setSearchFilms(search); 
+    } else{
+      setSearchFilms(saveMovies) ///check
+    }
     handlerFilterMovies(searchValue)
     
 }, [isShortFilms, searchValue]);

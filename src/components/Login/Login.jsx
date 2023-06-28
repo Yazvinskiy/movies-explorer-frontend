@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import './Login.css';
 import logo from '../../images/header-logo.svg';
 
-const Login = ({onSubmit, onLoading}) => {
+const Login = ({onSubmit}) => {
   
   const {
     register,
@@ -18,7 +18,7 @@ const Login = ({onSubmit, onLoading}) => {
 
 
   const handleValueSubmit = (data) => {
-    onLoading()
+    
     onSubmit(data);
     reset()
   };
@@ -51,8 +51,8 @@ const Login = ({onSubmit, onLoading}) => {
                   message: 'Некорректный адрес электронной почты',
                 },
                 pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Адрес электронной почты должен содержать символ @',
+                  value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ,
+                  message: 'Адрес электронной почты невалидный',
                 },
               })}
             ></input>

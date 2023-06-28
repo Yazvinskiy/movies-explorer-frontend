@@ -36,10 +36,14 @@ const Movies = ({loggedIn}) => {
   }
   }, []);
 
+  
+
   const saveMovie = async (data) => {
     try {
       if(!data.isLiked){
-        const movie =  await mainApi.saveMovie(data);    
+        const movie =  await mainApi.saveMovie(data);  
+        setSavedFilms([...savedFilms, movie])  
+       
       }
     } catch (error) {
       console.log(error);
@@ -50,7 +54,6 @@ const Movies = ({loggedIn}) => {
     try {
       const movieToDelete = savedFilms.find((f) => f.movieId === movie.id)
      const film = await mainApi.deleteMovie(movieToDelete._id );
-     
      setUpdateSavedFilms(film)
     } catch (error) {
      console.log(error) 
@@ -62,6 +65,7 @@ const Movies = ({loggedIn}) => {
     try {
       const savedMovies = await mainApi.getSavedMovies();
       setSavedFilms(savedMovies)
+     
     } catch (error) {
       console.log(error)
     } finally {
@@ -130,11 +134,18 @@ const Movies = ({loggedIn}) => {
   React.useEffect(() => {
     getSavedMovies()
   }, [updateSavedFilms]);
- 
-  
+
   const getShortMovies = () => {
     setIssShortFilms(!isShortFilms);
   };
+// React.useEffect(()=> {
+//   if(!car){
+//     setSavedFilms([])
+//     console.log(savedFilms)
+//   }
+// }, [car])
+// console.log(savedFilms)
+
 
   return (
     <>
