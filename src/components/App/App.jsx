@@ -30,7 +30,6 @@ function App() {
       setInfoToolStatus(true);
       setIsInfoTooltipPopupOpen(true);
       const jwt = await signIn(data);
-      console.log(jwt);
       localStorage.setItem('jwt', jwt.token);
       setLoggedIn(true);
       navigate('/movies');
@@ -56,6 +55,11 @@ function App() {
 
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('searchValue');
+    localStorage.removeItem('savedMovies');
+    localStorage.removeItem('searchMovies');
+    localStorage.removeItem('isShortFilms');
+    localStorage.removeItem('allMovies');
     setLoggedIn(false);
     navigate('/');
   };
@@ -81,7 +85,6 @@ function App() {
   useEffect(() => {
     if(loggedIn){
       getUserData();
-     
     }
   }, [loggedIn]);
 
@@ -93,7 +96,11 @@ function App() {
         setCurrentUser(res);
         setLoggedIn(true);
         const loc = location.pathname
-         navigate(loc);  
+        if( loc === '/signup' || loc === '/signin' || loc === '/'){
+          navigate('/movies'); 
+        } else if(loc === '/movies' || loc === '/saved-movies' || loc === '/profile'){
+          navigate(-1); 
+        }
       })
       .catch((err) => console.log(err))
     }

@@ -5,6 +5,7 @@
     text-decoration: none;
     color: #FF6838;
     cursor: pointer;
+    display: block;
 }
 
 .not-found-page__link:hover {
@@ -20,6 +21,9 @@
 
 .not-found-page__container {
     padding-top: 246px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .not-found-page__subtitle {

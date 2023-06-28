@@ -34,7 +34,7 @@ const SearchForm = ({ OnFilterMovies , onShortFilms, isShortFilms, setSearchValu
         </button>
       </form>
       {!inputValue && (<p className="search-film__error">{error}</p>)}
-      <FilterCheckbox  onShortFilms={onShortFilms} isShortFilms={isShortFilms}/>
+      <FilterCheckbox isShortFilms={isShortFilms} onShortFilms={onShortFilms} />
     </div>
   );
 };
