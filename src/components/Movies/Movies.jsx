@@ -43,7 +43,7 @@ const Movies = ({loggedIn}) => {
       if(!data.isLiked){
         const movie =  await mainApi.saveMovie(data);  
         setSavedFilms([...savedFilms, movie])  
-       
+        setUpdateSavedFilms(movie)
       }
     } catch (error) {
       console.log(error);
