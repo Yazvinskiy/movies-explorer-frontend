@@ -43,7 +43,6 @@ const Movies = ({loggedIn}) => {
       if(!data.isLiked){
         const movie =  await mainApi.saveMovie(data);  
         setSavedFilms([...savedFilms, movie])  
-        setUpdateSavedFilms(movie)
       }
     } catch (error) {
       console.log(error);
@@ -138,14 +137,6 @@ const Movies = ({loggedIn}) => {
   const getShortMovies = () => {
     setIssShortFilms(!isShortFilms);
   };
-// React.useEffect(()=> {
-//   if(!car){
-//     setSavedFilms([])
-//     console.log(savedFilms)
-//   }
-// }, [car])
-// console.log(savedFilms)
-
 
   return (
     <>

@@ -1,7 +1,6 @@
 export default class MainApi {
     constructor(config) {
         this._baseUrl = config.baseUrl;
-        this._headers = config.headers;
     }
 
     _getResponse(res) {
@@ -14,7 +13,10 @@ export default class MainApi {
       async saveMovie(data) {
         const res = await fetch(`${this._baseUrl}/movies`, {
           method: 'POST',
-          headers: this._headers,
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            'Content-Type': 'application/json'
+        },
           body: JSON.stringify({
             nameRU: data.nameRU || '',
             nameEN: data.nameEN || '',
@@ -35,7 +37,10 @@ export default class MainApi {
       async deleteMovie(id) {
         const res = await fetch(`${this._baseUrl}/movies/${id}`, {
           method: 'DELETE',
-          headers: this._headers
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            'Content-Type': 'application/json'
+        }
       });
       return this._getResponse(res);
       }
@@ -44,7 +49,10 @@ export default class MainApi {
       async getSavedMovies() {
         const res = await fetch(`${this._baseUrl}/movies`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('jwt')}`,
+              'Content-Type': 'application/json'
+          }
         });
         return this._getResponse(res);
       }
@@ -52,7 +60,10 @@ export default class MainApi {
       async getUserData() {
         const res = await fetch(`${this._baseUrl}/users/me`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('jwt')}`,
+              'Content-Type': 'application/json'
+          }
         });
         return this._getResponse(res);
       }
@@ -60,7 +71,10 @@ export default class MainApi {
       async setUserData({name, email}) {
         const res = await fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('jwt')}`,
+              'Content-Type': 'application/json'
+          },
             body: JSON.stringify({
                 name,
                 email
@@ -74,10 +88,6 @@ export default class MainApi {
 
 const apiConfig = {
     baseUrl: 'https://api.diploma.nomoredomains.rocks',
-    headers: {
-      authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      'Content-Type': 'application/json',
-    },
   };
 
   export const mainApi = new MainApi(apiConfig);

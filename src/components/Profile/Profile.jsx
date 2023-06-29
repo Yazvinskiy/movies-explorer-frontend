@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { CurrentUserContext } from '../../context/CurrentUserContext';
@@ -92,13 +91,10 @@ const Profile = ({onSignOut, setUserData, isUpdate, setIsUpdate}) => {
          : <button className="profile__btn profile__btn-edit" type="submit" disabled={ (valueName === currentUser.name &&  valueEmail ===  currentUser.email)  || !isValid} >
           Редактировать
         </button>}
-        </form>
-      
-        <Link to={"/"} className='profile__btn-exit'>
-          <button className="profile__btn profile__exit" type="button" onClick={onSignOut}>
+        </form> 
+          <button className=" profile__btn-exit profile__btn profile__exit" type="button" onClick={onSignOut}>
             Выйти из аккаунта
-          </button>
-        </Link>
+          </button>   
       </div>
     </div>
   );

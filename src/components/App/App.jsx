@@ -27,9 +27,9 @@ function App() {
   const handleSingUp = async (data) => {
     try {
       await signUp(data);
+      const jwt = await signIn(data);
       setInfoToolStatus(true);
       setIsInfoTooltipPopupOpen(true);
-      const jwt = await signIn(data);
       localStorage.setItem('jwt', jwt.token);
       setLoggedIn(true);
       navigate('/movies');
@@ -60,6 +60,7 @@ function App() {
     localStorage.removeItem('searchMovies');
     localStorage.removeItem('isShortFilms');
     localStorage.removeItem('allMovies');
+    setCurrentUser(null);
     setLoggedIn(false);
     navigate('/');
   };
@@ -85,14 +86,14 @@ function App() {
 
   useEffect(() => {
     if(loggedIn){
-      getUserData();
+       getUserData();
     }
   }, [loggedIn]);
 
 
   useEffect(() => {
-    if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
       checkAuth(jwt).then((res) => {
         setCurrentUser(res);
         setLoggedIn(true);

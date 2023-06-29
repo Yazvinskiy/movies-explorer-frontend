@@ -25,9 +25,8 @@ const SavedMovies = ({loggedIn}) => {
     setIsLoading(true)
     try {
       const savedMovies = await mainApi.getSavedMovies();
-      // localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
+
       setSaveMovies(savedMovies)
-    //  const a = localStorage.getItem('savedMovies', saveMovies)
     } catch (error) {
       console.log(error)
     } finally {
@@ -38,22 +37,16 @@ const SavedMovies = ({loggedIn}) => {
   const deleteMovie = async (movie) => {
     try {
     const film =  await mainApi.deleteMovie(movie._id);
-    // localStorage.getItem('savedMovies')
+
     setUpdateSavedFilms(film)
     } catch (error) {
      console.log(error) 
     }
   }
 
-  // React.useEffect(() => {
-  //   if(!loggedIn){
-  //     setSaveMovies('')
-  //   }
-  // }, [loggedIn]);
-
   React.useEffect(() => {
     getSavedMovies()
-  //  localStorage.getItem('savedMovies', saveMovies)
+  
   }, [updateSavedFilms]);
 
   const handlerFilterMovies = useCallback((inputValue) => {
@@ -62,9 +55,7 @@ const SavedMovies = ({loggedIn}) => {
     } 
     else if(isShortFilms){
       const search = saveMovies.filter((movie) => {
-        return (  movie.nameRU.toLowerCase()
-          .includes(inputValue)
-           )  
+        return movie.duration < 40 
       });
       setSearchFilms(search);
     } else {
@@ -85,10 +76,7 @@ const SavedMovies = ({loggedIn}) => {
    const countOfFilms =  widthOfScreen >= 1280 ?  16 :
     widthOfScreen < 768 ? 4 : 8;
    return  searchFilms.slice(0, countOfFilms + cardsToLoad)
-  //  .map((movie) => ({
-  //   ...movie, 
-  //   isLiked: saveMovies.some((m) => m.movieId === movie.id)
-  //  }))
+  
   }, [ cardsToLoad, widthOfScreen, searchFilms, saveMovies])
 
   const handleResize = () => {
@@ -109,13 +97,13 @@ const SavedMovies = ({loggedIn}) => {
   };
 
   React.useEffect(() => {
-    if(isShortFilms){
+    if(!searchValue && isShortFilms){
       const search = saveMovies.filter((movie) => {
-        return movie.duration < 40     
+        return movie.duration < 40 
       });
-      setSearchFilms(search); 
-    } else{
-      setSearchFilms(saveMovies) ///check
+      setSearchFilms(search)
+    }else if(!isShortFilms){
+      setSearchFilms(saveMovies) 
     }
     handlerFilterMovies(searchValue)
     
