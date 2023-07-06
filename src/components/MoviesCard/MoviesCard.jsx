@@ -1,22 +1,54 @@
 import React from 'react';
+import { useMatch } from 'react-router-dom';
 
-import film from '../../images/example.jpg';
 import './MoviesCard.css';
 
-const MoviesCard = () => {
+const MoviesCard = ({ movie, saveMovie, imageSavedMovie, deleteMovie }) => {
   const [isActive, setIsActive] = React.useState(false);
-
-  const handleClick = () => {
-    setIsActive(!isActive);
+  const savedMoviesPage = useMatch('/saved-movies');
+  const movieImage =
+    imageSavedMovie ?? `https://api.nomoreparties.co${movie.image.url}`;
+  const durationMovie = (minutes) => {
+    return `${Math.round(minutes / 60)}ч ${minutes % 60}мин`;
   };
+
+  const handleCardDelete = () => {
+    deleteMovie(movie);
+  };
+
+  const handleLikeClick = () => {
+    setIsActive(!isActive);
+    saveMovie(movie);
+  };
+
   return (
     <li className="cards-movies__item">
-      <img className="cards-movies__image" src={film} alt="постер" />
+      <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+        <img
+          className="cards-movies__image"
+          src={movieImage}
+          alt="постер"
+        />
+      </a>
       <div className="cards-movies__content">
-        <h3 className="cards-movies__title">33 слова о дизайне</h3>
-        <button className={`cards-movies__like ${isActive ? 'cards-movies__like_active' : ''}`} onClick={handleClick} ></button>
+        <h3 className="cards-movies__title">{movie.nameRU}</h3>
+        {savedMoviesPage ? (
+          <button
+            className="cards-movies__delete"
+            onClick={handleCardDelete}
+          ></button>
+        ) : (
+          <button
+            className={`cards-movies__like ${
+              movie.isLiked ? 'cards-movies__like_active' : ''
+            }`}
+            onClick={movie.isLiked ? handleCardDelete : handleLikeClick}
+          ></button>
+        )}
       </div>
-      <span className="cards-movies__duration">1ч 42м</span>
+      <span className="cards-movies__duration">
+        {durationMovie(movie.duration)}
+      </span>
     </li>
   );
 };

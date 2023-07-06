@@ -26,10 +26,20 @@
 .cards-movies__image {
     cursor: pointer;
     width: 270px;
+    height: 151px;
 }
 
 .cards-movies__like {
     background-image: url('../../images/like-inactive.svg');
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.cards-movies__delete {
+    background-image: url('../../images/btnDelete.svg');
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -48,12 +58,14 @@
 @media screen and (max-width: 1279px) {
     .cards-movies__image {
         width: 339px;
+        height: 190px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .cards-movies__image {
         width: 300px;
+        height: 168px;
     }
 
     .cards-movies__content {

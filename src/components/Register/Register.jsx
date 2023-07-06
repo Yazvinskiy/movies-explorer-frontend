@@ -5,14 +5,22 @@ import { useForm } from 'react-hook-form';
 import logo from '../../images/header-logo.svg';
 import './Register.css';
 
-const Register = () => {
+const Register = ({onSubmit}) => {
+ 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid },
   } = useForm({
     mode: 'all',
   });
+
+
+  const handleValueSubmit = (data) => {
+    onSubmit(data);
+    reset()
+  };
 
   return (
     <section className="registration">
@@ -23,7 +31,7 @@ const Register = () => {
           </Link>
           <h2 className="auth__title">Добро пожаловать!</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit(handleValueSubmit)}>
           <div className="wrapper__input">
             <label className="auth__label" htmlFor="name">
               Имя
@@ -39,12 +47,16 @@ const Register = () => {
                   message: 'Введите имя',
                 },
                 minLength: {
-                  value: 4,
-                  message: 'минимальное количество символов 4',
+                  value: 2,
+                  message: 'минимальное количество символов 2',
                 },
                 maxLength: {
-                  value: 20,
-                  message: 'максимальное количество символов 20',
+                  value: 30,
+                  message: 'максимальное количество символов 30',
+                },
+                pattern: {
+                  value: /^[А-ЯA-Z- -]+$/umi,
+                  message: 'Поле name должно содержить только латиницу, кириллицу, пробел или дефис ',
                 },
               })}
             ></input>
@@ -70,8 +82,8 @@ const Register = () => {
                   message: 'Некорректный адрес электронной почты',
                 },
                 pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Адрес электронной почты должен содержать символ @',
+                  value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                  message: 'Адрес электронной почты невалидный',
                 },
               })}
             ></input>
@@ -94,7 +106,7 @@ const Register = () => {
                 },
                 minLength: {
                   value: 8,
-                  message: 'минимальное количество символов 8',
+                  message: 'Минимальное количество символов 8',
                 },
               })}
             ></input>
@@ -102,7 +114,7 @@ const Register = () => {
               {errors?.password && errors.password.message}{' '}
             </p>
           </div>
-          <button className="auth__btn">Зарегистрироваться</button>
+          <button className="auth__btn" type="submit" disabled={!isValid}>Зарегистрироваться</button>
         </form>
         <p className="auth__caption">
           Уже зарегистрированы?

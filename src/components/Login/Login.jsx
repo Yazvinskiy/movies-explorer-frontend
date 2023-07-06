@@ -5,17 +5,23 @@ import { useForm } from 'react-hook-form';
 import './Login.css';
 import logo from '../../images/header-logo.svg';
 
-const Login = () => {
+const Login = ({onSubmit}) => {
   
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid },
   } = useForm({
-    mode: "all"
+    mode: 'all',
   });
-  
-  console.log(errors);
+
+
+  const handleValueSubmit = (data) => {
+    
+    onSubmit(data);
+    reset()
+  };
 
   return (
     <section className="login">
@@ -26,7 +32,7 @@ const Login = () => {
           </Link>
           <h2 className="auth__title">Рады видеть!</h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit(handleValueSubmit)}>
           <div className="wrapper__input">
             <label className="auth__label" htmlFor="email">
               E-mail
@@ -45,15 +51,15 @@ const Login = () => {
                   message: 'Некорректный адрес электронной почты',
                 },
                 pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: 'Адрес электронной почты должен содержать символ @',
+                  value: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ,
+                  message: 'Адрес электронной почты невалидный',
                 },
               })}
             ></input>
             <p className="input-error">{errors?.email && errors.email.message} </p>
           </div>
           <div className="wrapper__input">
-            <label className="auth__label" htmlFor="bread">
+            <label className="auth__label" htmlFor="password">
               Пароль
             </label>
             <input
@@ -73,7 +79,7 @@ const Login = () => {
             ></input>
              <p className="input-error">{errors?.password && errors.password.message} </p>
           </div>
-          <button className="auth__button">Войти</button>
+          <button className="auth__button" type='submit' disabled={!isValid}>Войти</button>
         </form>
         <p className="auth__caption">
           Ещё не зарегистрированы?

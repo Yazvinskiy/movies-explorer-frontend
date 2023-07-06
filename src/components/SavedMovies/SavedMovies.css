@@ -3,6 +3,8 @@
     margin: 0 auto;
 }
 
+
+
 @media screen and (max-width: 1279px) {
     .saved-movies {
         max-width: 708px;
@@ -12,6 +14,27 @@
 @media screen and (max-width: 767px) {
     .saved-movies {
         max-width: 320px;
+    }
+}
+
+.saved-movies-error {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    max-width: 1140px;
+    width: 90%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 140px;
+}
+
+@media screen and (min-width: 768px) {
+    .saved-movies-error {
+        font-size: 26px;
+        line-height: 30px;
     }
 }
   

@@ -6,6 +6,11 @@
     line-height: 18px;
 }
 
+.navigation__container{
+    display: flex;
+    align-items: center;
+}
+
 .navigation__link:first-of-type {
     margin-right: 20px;
 }
@@ -14,16 +19,7 @@
     font-weight: 500;
 }
 
-.navigation__burger {
-    display: none;
-    background-image: url('../../images/burger-menu.svg');
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background-color: inherit;
-    border: none;
-    cursor: pointer;
-}
+
 
 .navigation__btn {
     width: 100px;
@@ -38,7 +34,7 @@
     line-height: 16px;
 }
 
-@media screen and (max-width: 1279px) {
+/* @media screen and (max-width: 1279px) {
     .navigation__container {
         display: none;
     }
@@ -46,4 +42,4 @@
     .navigation__burger {
         display: block;
     }
-}
+} */
