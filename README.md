@@ -3,6 +3,5 @@
 <<<<<<< HEAD
 ## ссылка на макет https://github.com/Yazvinskiy/movies-explorer-frontend/pulls
 =======
-## ссылка на пул реквест https://github.com/Yazvinskiy/movies-explorer-frontend/pull/2
 ##  Frontend https://diploma.nomoredomains.rocks
 >>>>>>> c96714d61f6122ace55c124adeb53f3f55843b86
